@@ -22,6 +22,8 @@ namespace VariablesDatatypesTutorial
             /******************************************************************************/
             // Step 2: Calculate the sales tax and tip
             /******************************************************************************/
+            const double SalesTaxPercent = 7.5;
+            double taxAmount;
 
 
 
