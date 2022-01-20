@@ -11,7 +11,20 @@
          */
         public bool LoneTeen(int a, int b)
         {
-            return false;
+            if ((a >= 13 && a <= 19) && (b >= 13 && b <= 19))
+            {
+                return false;
+            }
+            
+            else if ((a <= 12 || a >= 20) && (b <= 12 || b >= 20))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
     }
 }

@@ -11,7 +11,24 @@
 	     */
         public bool SleepIn(bool weekday, bool vacation)
         {
-            return false;
+         if (weekday == false && vacation == false)
+            {
+                return true;
+            }
+         else if (weekday == true && vacation == false)
+            {
+                return false;
+            }
+         else if (weekday == false && vacation == true)
+            {
+                return true;
+            }
+         else
+            {
+                return true;
+            }
+          
+            
         }
     }
 }
