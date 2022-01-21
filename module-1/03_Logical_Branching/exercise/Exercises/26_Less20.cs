@@ -12,7 +12,16 @@
          */
         public bool Less20(int n)
         {
-            return false;
+            int result = n % 20;
+            if (result == 19 || result == 18)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }
