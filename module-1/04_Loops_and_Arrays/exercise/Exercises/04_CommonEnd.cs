@@ -11,7 +11,18 @@
          */
         public bool CommonEnd(int[] a, int[] b)
         {
-            return false;
+            int firstA = a[0];
+            int lastA = a[a.Length - 1];
+            int firstB = b[0];
+            int lastB = b[b.Length - 1];
+            if (firstA == firstB || lastA == lastB)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -11,7 +11,25 @@
          */
         public int[] MaxEnd3(int[] nums)
         {
-            return new int[] { };
+            int firstNums = nums[0];
+            int lastNums = nums[nums.Length - 1];
+            if (firstNums >= lastNums)
+            {
+                nums[1] = nums[0];
+                nums[2] = nums[0];
+            }
+            else if (lastNums >= firstNums)
+            {
+                nums[1] = nums[2];
+                nums[0] = nums[2];
+            }
+            else
+            {
+                return nums;
+            }
+
+            return nums;
         }
+
     }
 }

@@ -11,7 +11,10 @@
          */
         public int[] MiddleWay(int[] a, int[] b)
         {
-            return new int[] { };
+            int aMiddle = a[1];
+            int bMiddle = b[1];
+            int[] middlesArray = new int[2] { aMiddle, bMiddle };
+            return middlesArray;
         }
     }
 }

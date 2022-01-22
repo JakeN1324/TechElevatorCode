@@ -11,7 +11,23 @@
          */
         public bool SameFirstLast(int[] nums)
         {
-            return false;
+            int firstElem = nums[0];
+            int secElem = nums[nums.Length - 1];
+            if (nums.Length >= 1)
+            {
+                if (firstElem == secElem)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

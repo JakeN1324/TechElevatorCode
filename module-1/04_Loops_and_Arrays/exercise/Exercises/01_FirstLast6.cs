@@ -11,7 +11,18 @@
          */
         public bool FirstLast6(int[] nums)
         {
-            return false;
+            int firstCheck = nums[0];
+            int secCheck = nums[nums.Length - 1];
+            if (firstCheck == 6 || secCheck == 6)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+            
         }
     }
 }

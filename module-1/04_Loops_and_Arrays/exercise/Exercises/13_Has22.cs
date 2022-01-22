@@ -10,6 +10,21 @@
          */
         public bool Has22(int[] nums)
         {
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 2)
+                {
+                    if (nums[i + 1] == 2)
+                    {
+                        return true;
+                    }
+                    else if (nums[i - 1] == 2)
+                    {
+                        return true;
+                    }
+                }
+                
+            }
             return false;
         }
     }

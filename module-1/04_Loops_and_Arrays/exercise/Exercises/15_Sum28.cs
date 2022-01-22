@@ -10,7 +10,23 @@
          */
         public bool Sum28(int[] nums)
         {
-            return false;
+            int sumofTwos = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 2)
+                {
+                    sumofTwos += 2;
+                }
+            }
+
+            if (sumofTwos == 8)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
