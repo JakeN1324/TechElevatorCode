@@ -12,8 +12,13 @@
         */
         public string MakeOutWord(string outword, string word)
         {
+            string open = outword.Substring(0, (outword.Length / 2));
+            string close = outword.Substring(2);
 
-            return null;
+            string newWord = open + word + close;
+            return newWord;
+
+            
         }
     }
 }

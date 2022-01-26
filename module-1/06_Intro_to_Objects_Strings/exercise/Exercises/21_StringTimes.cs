@@ -10,7 +10,14 @@
         */
         public string StringTimes(string str, int n)
         {
-            return null;
+            string copy = string.Empty;
+            int lengthNeeded = str.Length * n;
+            while (lengthNeeded > copy.Length)
+            {
+                copy = copy + str;
+            }
+
+            return copy;
         }
     }
 }

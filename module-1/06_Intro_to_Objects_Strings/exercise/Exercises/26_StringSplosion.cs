@@ -10,7 +10,16 @@
         */
         public string StringSplosion(string str)
         {
-            return null;
+            string splosion = string.Empty;
+            int length = 1;
+            while (length <= str.Length)
+            {
+
+                splosion = splosion + str.Substring(0, length);
+                length++;
+            }
+
+            return splosion;
         }
     }
 }

@@ -11,7 +11,9 @@
         */
         public string Right2(string str)
         {
-            return null;
+            string firstSplit = str.Substring(str.Length - 2);
+            string remainder = str.Substring(0, str.Length - 2);
+            return firstSplit + remainder;
         }
     }
 }

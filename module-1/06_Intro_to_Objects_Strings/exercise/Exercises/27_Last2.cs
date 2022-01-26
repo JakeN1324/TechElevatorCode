@@ -11,7 +11,18 @@
         */
         public int Last2(string str)
         {
-            return 0;
+            
+            string last2 = str.Substring(str.Length - 2);
+            
+            int matchCount = 0;
+            int index = 0;
+            if (str.Substring(index, str.Length - 2).Contains(last2))
+            {
+                matchCount++;
+                index++;
+            }
+            return matchCount;
+            
         }
     }
 }

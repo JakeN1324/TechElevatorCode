@@ -12,6 +12,18 @@
         */
         public bool HasBad(string str)
         {
+            if (str.Contains("bad"))
+            {
+                if (str.Substring(0, 3) == "bad" || str.Substring(1, 3) == "bad")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
             return false;
         }
     }

@@ -10,7 +10,16 @@
         */
         public int CountXX(string str)
         {
-            return 0;
+            int xCount = 0;
+            for (int i = 0; i < str.Length - 1; i++)
+            {
+                if (str[i] == 'x' && str[i + 1] == 'x')
+                {
+                    xCount++;
+                }
+            }
+
+            return xCount;
         }
     }
 }

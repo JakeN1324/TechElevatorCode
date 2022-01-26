@@ -10,7 +10,22 @@
         */
         public string AltPairs(string str)
         {
-            return null;
+            string newWord = string.Empty;
+            if (string.IsNullOrEmpty(str))
+            {
+                return str;
+            }
+
+            for (int i = 0; i < str.Length; i++)
+            {
+                newWord = newWord + str.Substring(i, 2);
+                i = i + 3;
+
+
+
+            }
+
+            return newWord;
         }
     }
 }

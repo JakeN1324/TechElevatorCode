@@ -10,7 +10,24 @@
         */
         public bool DoubleX(string str)
         {
-            return false;
+            
+            if (str.Contains('x'))
+            {
+                if (str.Substring(str.IndexOf('x'), 2) == "xx")
+                {
+                    return true;
+                }
+                return false;
+
+                
+                 
+            }
+            else
+            {
+                return false;
+            }
+
+            
         }
     }
 }

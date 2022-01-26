@@ -11,7 +11,9 @@
         */
         public string Left2(string str)
         {
-            return null;
+            string firstSplit = str.Substring(0, 2);
+            string secondSplit = str.Substring(2);
+            return secondSplit + firstSplit;
         }
     }
 }

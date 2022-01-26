@@ -11,7 +11,10 @@
         */
         public string NonStart(string a, string b)
         {
-            return null;
+            string shortA = a.Substring(1);
+            string shortB = b.Substring(1);
+
+            return shortA + shortB;
         }
     }
 }
