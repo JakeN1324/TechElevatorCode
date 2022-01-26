@@ -11,20 +11,7 @@
         */
         public string StringYak(string str)
         {
-            string withoutYak = string.Empty;
-            if (str.Contains("yak"))
-            {
-                while (str.Contains("yak"))
-                {
-                    withoutYak = str.Remove(str.IndexOf("yak"), 3);
-                }
-            }
-            else
-            {
-                withoutYak = str;
-            }
-
-            return withoutYak;
+            return null; 
         }
     }
 }
