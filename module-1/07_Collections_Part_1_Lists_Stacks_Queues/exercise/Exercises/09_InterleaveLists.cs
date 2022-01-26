@@ -15,7 +15,26 @@ namespace Exercises
         */
         public List<int> InterleaveLists(List<int> listOne, List<int> listTwo)
         {
-            return null;
+            List<int> result = new List<int>();
+            
+            for (int i = 0; i < listOne.Count || i < listTwo.Count; i++)
+            {
+                if (i < listOne.Count)
+                {
+                    result.Add(listOne[i]);
+                }
+                
+                if (i < listTwo.Count)
+                {
+                    result.Add(listTwo[i]);
+                }
+            }
+
+            return result;
+           
+
+
+
         }
     }
 }
