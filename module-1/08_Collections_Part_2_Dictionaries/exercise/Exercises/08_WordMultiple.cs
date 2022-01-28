@@ -15,7 +15,22 @@ namespace Exercises
          */
         public Dictionary<string, bool> WordMultiple(string[] words)
         {
-            return null;
+            Dictionary<string, bool> isItMultiple = new Dictionary<string, bool>();
+            
+            foreach(string item in words)
+            {
+                if (isItMultiple.ContainsKey(item))
+                {
+                    isItMultiple[item] = true;
+                }
+                else
+                {
+                    isItMultiple[item] = false;
+                }
+                
+            }
+
+            return isItMultiple;
         }
     }
 }

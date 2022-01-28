@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Exercises
 {
@@ -34,7 +35,38 @@ namespace Exercises
          */
         public string AnimalGroupName(string animalName)
         {
-            return null;
+            Dictionary<string, string> animalGroups = new Dictionary<string, string>();
+            animalGroups["Rhino"] = "Crash";
+            animalGroups["Giraffe"] = "Tower";
+            animalGroups["Elephant"] = "Herd";
+            animalGroups["Lion"] = "Pride";
+            animalGroups["Crow"] = "Murder";
+            animalGroups["Pigeon"] = "Kit";
+            animalGroups["Flamingo"] = "Pat";
+            animalGroups["Deer"] = "Herd";
+            animalGroups["Dog"] = "Pack";
+            animalGroups["Crocodile"] = "Float";
+
+            Dictionary<string, string> lowerAnimalGroups = new Dictionary<string, string>();
+
+            foreach(string animal in animalGroups.Keys)
+            {
+                lowerAnimalGroups[animal.ToLower()] = animalGroups[animal];
+            }
+
+
+            
+            if (!String.IsNullOrEmpty(animalName) && lowerAnimalGroups.ContainsKey(animalName.ToLower()))
+            {
+                return lowerAnimalGroups[animalName.ToLower()];
+            }
+            else
+            {
+                return "unknown";
+            }
+
+            
+
         }
     }
 }

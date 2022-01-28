@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Exercises
 {
@@ -28,7 +29,25 @@ namespace Exercises
          */
         public double IsItOnSale(string itemNumber)
         {
-            return -1.0;
+            Dictionary<string, double> sales = new Dictionary<string, double>();
+            sales["KITCHEN4001"] = 0.20;
+            sales["GARAGE1070"] = 0.15;
+            sales["LIVINGROOM"] = 0.10;
+            sales["KITCHEN6073"] = 0.40;
+            sales["BEDROOM3434"] = 0.60;
+            sales["BATH0073"] = 0.15;
+
+            if (!String.IsNullOrEmpty(itemNumber) && sales.ContainsKey(itemNumber.ToUpper()))
+            {
+                return sales[itemNumber.ToUpper()];
+            }
+            else
+            {
+                return 0.00;
+            }
+
+
+
         }
     }
 }
