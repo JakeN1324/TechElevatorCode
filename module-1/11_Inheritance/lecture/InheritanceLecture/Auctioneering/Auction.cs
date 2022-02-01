@@ -36,20 +36,27 @@ namespace InheritanceLecture.Auctioneering
         /// </summary>
         /// <param name="offeredBid">The bid to place.</param>
         /// <returns>True if the new bid is the current winning bid</returns>
-        public bool PlaceBid(Bid offeredBid)
+        public virtual bool PlaceBid(Bid offeredBid)
         {
+            bool result = false;
+
             // Print out the bid details.
             Console.WriteLine(offeredBid.Bidder + " bid " + offeredBid.BidAmount.ToString("C"));
 
             // Record it as a bid by adding it to allBids
-
+            allBids.Add(offeredBid);
             // Check to see IF the offered bid is higher than the current bid amount
-                // if yes, set offered bid as the current high bid
+            if (CurrentHighBid.BidAmount < offeredBid.BidAmount)
+            {
+                CurrentHighBid = offeredBid;
+                result = true;
+            }
+            // if yes, set offered bid as the current high bid
 
             // Output the current high bid
-
+            Console.WriteLine("Current high bid: " + CurrentHighBid.Bidder + " bid " + CurrentHighBid.BidAmount);
             // Return if this is the new highest bid
-            return false;
+            return result;
         }
     }
 }

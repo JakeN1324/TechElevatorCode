@@ -17,7 +17,7 @@
         {
             get
             {
-                int grade = (EarnedMarks / PossibleMarks) * 100;
+                int grade = (int)(((double)EarnedMarks / PossibleMarks) * 100);
                 if (grade >= 90)
                 {
                     return "A";
