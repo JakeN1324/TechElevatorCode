@@ -1,6 +1,6 @@
 namespace BankTellerExercise
 {
-    public class SavingsAccount : BankAccount
+    public class SavingsAccount : BankAccount, IAccountable
     {
         public SavingsAccount(string accountHolder, string accountNumber) : base(accountHolder, accountNumber)
         {
@@ -11,6 +11,8 @@ namespace BankTellerExercise
         {
 
         }
+
+        
 
         public override decimal Withdraw(decimal amountToWithdraw)
         {
@@ -25,6 +27,20 @@ namespace BankTellerExercise
                 }
             }
             return Balance;
+        }
+
+        public override decimal TransferTo(BankAccount destinationAccount, decimal transferAmount)
+        {
+            if (Balance - transferAmount >= 2)
+            {
+                base.TransferTo(destinationAccount, transferAmount);
+                if (Balance < 150)
+                {
+                    base.Withdraw(2);
+                }
+            }
+
+            return this.Balance;
         }
     }
 }
