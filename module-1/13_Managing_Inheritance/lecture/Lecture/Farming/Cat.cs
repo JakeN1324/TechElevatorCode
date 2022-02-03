@@ -4,7 +4,24 @@ using System.Text;
 
 namespace Lecture.Farming
 {
-    class Cat
+    public class Cat : FarmAnimal
     {
+        public Cat() : base("Cat", "meow")
+        {
+
+        }
+
+        public override string Eat()
+        {
+            return "Eating cat food...";
+        }
+
+        public override string Sound
+        {
+            get
+            {
+                return "Meow";
+            }
+        }
     }
 }

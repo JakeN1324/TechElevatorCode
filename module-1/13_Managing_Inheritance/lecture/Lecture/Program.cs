@@ -11,10 +11,21 @@ namespace Lecture
             // OLD MACDONALD
             //
 
+            Chicken chicken = new Chicken();
+            chicken.Sleep(true);
+
+            Cat cat = new Cat();
+            cat.Sleep(true);
+
+
+
             ISingable[] singables = new ISingable[]
             {
-                new Cow(), new Chicken(), new Pig(), new Tractor()
+                new Cow(), chicken, new Pig(), new Tractor(), cat, new BarnCat()
             };
+
+
+
 
             foreach(ISingable singable in singables)
             {
