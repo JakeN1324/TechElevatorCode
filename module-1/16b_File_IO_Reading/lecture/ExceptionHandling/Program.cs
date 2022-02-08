@@ -30,6 +30,11 @@ namespace ExceptionHandling
                 // Flow of control resumes here after the Exception is thrown
                 Console.WriteLine("XXX   Uh-oh, something went wrong...   XXX");
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("unknown error occured: " + e.Message);
+                throw e;
+            }
 
             Console.WriteLine();
 
@@ -65,6 +70,14 @@ namespace ExceptionHandling
                 int hoursWorked = int.Parse(Console.ReadLine());
                 int overtimeHours = hoursWorked - 40;
                 Console.WriteLine("You worked " + overtimeHours + " hours of overtime.");
+            }
+            catch (SystemException e)
+            {
+                Console.WriteLine("System exception caught...");
+            }
+            catch (ApplicationException e)
+            {
+                Console.WriteLine("Application exception caught");
             }
             catch (Exception e)
             {   // If a FormatException is thrown by int.Parse(...)
