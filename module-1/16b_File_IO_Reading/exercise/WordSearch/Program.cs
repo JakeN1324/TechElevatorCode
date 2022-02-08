@@ -9,7 +9,7 @@ namespace WordSearch
         {
             //1. Ask the user for the file path
             Console.WriteLine("Enter the file path to search: ");
-            string filePath = @"C:\Temp\alices_adventures_in_wonderland.txt"; //This would normally have the value of the user's chosen file path
+            string filePath = Console.ReadLine(); //C:\Temp\alices_adventures_in_wonderland.txt is the tested file path
 
             //2. Ask the user for the search string
             Console.WriteLine("What is the search word you are looking for?: ");
