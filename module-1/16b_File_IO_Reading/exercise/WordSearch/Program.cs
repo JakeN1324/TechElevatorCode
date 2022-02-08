@@ -16,12 +16,17 @@ namespace WordSearch
             string searchWord = Console.ReadLine();
 
             bool isCaseSensitive = true;
+
+
             Console.WriteLine("Should the search be case sensitive? (Y/N): ");
             if (Console.ReadLine() == "N")
             {
                 isCaseSensitive = false;
                 searchWord = searchWord.ToLower();
             }
+            
+
+
 
             //3. Open the file
 
@@ -58,7 +63,7 @@ namespace WordSearch
                             lineNumber++;
                         }
                     }
-                    
+
                 }
             }
             catch (IOException e)
