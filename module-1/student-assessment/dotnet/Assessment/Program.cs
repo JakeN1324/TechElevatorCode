@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assessment.Models;
+using System;
 
 namespace Assessment
 {
@@ -9,8 +10,10 @@ namespace Assessment
             // create an object and call methods on it
             // (manual testing) from this class.
 
-            Console.WriteLine("Hello World!");
-            Console.ReadLine();
-        }
+            WorkOrder firstClient = new WorkOrder("Bill", 50, 20);
+
+            Console.WriteLine(firstClient.ActualTotal(true, true));
+           
+    }
     }
 }
