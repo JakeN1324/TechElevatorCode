@@ -11,18 +11,29 @@
         */
         public int Last2(string str)
         {
-            
-            string last2 = str.Substring(str.Length - 2);
-            
-            int matchCount = 0;
-            int index = 0;
-            if (str.Substring(index, str.Length - 2).Contains(last2))
+
+
+
+            string lastLetters = str.Substring(str.Length - 2);
+            string theRest = str.Substring(0, str.Length - 1);
+            int counter = 0;
+
+            if (str.Length >= 0)
             {
-                matchCount++;
-                index++;
+                for (int i = 0; i < theRest.Length - 1; i++)
+                {
+                    if (str.Substring(i, 2) == lastLetters)
+                    {
+                        counter++;
+                    }
+                }
             }
-            return matchCount;
             
+
+            return counter;
+
+
+
         }
     }
 }

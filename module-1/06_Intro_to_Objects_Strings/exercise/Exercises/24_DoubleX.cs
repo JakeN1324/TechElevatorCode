@@ -11,13 +11,10 @@
         public bool DoubleX(string str)
         {
             
-            if (str.Contains('x'))
+            if (str.Contains('x') && str.Substring(str.IndexOf('x'), 2) == "xx")
             {
-                if (str.Substring(str.IndexOf('x'), 2) == "xx")
-                {
-                    return true;
-                }
-                return false;
+                return true;
+                
 
                 
                  
