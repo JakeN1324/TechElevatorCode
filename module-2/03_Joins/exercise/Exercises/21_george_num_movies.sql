@@ -2,8 +2,8 @@
 -- been in--include all Georges, even those that have not appeared in any movies. Display the names in alphabetical order. (59 rows)
 -- Name the count column 'num_of_movies'
 
-SELECT p.person_name, COUNT(m.title) num_of_movies FROM person p
-JOIN movie_actor ma ON ma.actor_id = p.person_id
-JOIN movie m ON m.movie_id = ma.movie_id
+SELECT p.person_name, COUNT(m.title) num_of_movies FROM movie m
+JOIN movie_actor ma ON ma.movie_id = m.movie_id
+LEFT JOIN person p ON p.person_id = ma.actor_id
 WHERE p.person_name LIKE 'George%'
 GROUP BY p.person_name
