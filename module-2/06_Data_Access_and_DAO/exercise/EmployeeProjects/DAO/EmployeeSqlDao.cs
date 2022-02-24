@@ -48,7 +48,7 @@ namespace EmployeeProjects.DAO
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM employee WHERE first_name LIKE '@first_name%' AND last_name LIKE '%@last_name';", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM employee WHERE first_name LIKE '%' + @first_name + '%' AND last_name LIKE '%' + @last_name + '%';", conn);
                 cmd.Parameters.AddWithValue("@first_name", firstNameSearch);
                 cmd.Parameters.AddWithValue("@last_name", lastNameSearch);
 
@@ -56,7 +56,13 @@ namespace EmployeeProjects.DAO
 
                 while (reader.Read())
                 {
-                    Employee employee = CreateEmployeeFromReader(reader);
+                    Employee employee = new Employee();
+                    employee.EmployeeId = Convert.ToInt32(reader["employee_id"]);
+                    employee.DepartmentId = Convert.ToInt32(reader["department_id"]);
+                    employee.FirstName = Convert.ToString(reader["first_name"]);
+                    employee.LastName = Convert.ToString(reader["last_name"]);
+                    employee.BirthDate = Convert.ToDateTime(reader["birth_date"]);
+                    employee.HireDate = Convert.ToDateTime(reader["hire_date"]);
                     employees.Add(employee);
                 }
             }

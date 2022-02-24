@@ -2,34 +2,47 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Data.SqlClient;
 using System.Transactions;
+using USCitiesAndParks.DAO;
 using USCitiesAndParks.Models;
 
 namespace USCitiesAndParksTests
 {
     [TestClass]
-    public class CitySqlDaoTests
+    public class CitySqlDaoTests : CitiesAndParksTests
     {
-        protected string ConnectionString { get; } = "Server=.\\SQLEXPRESS;Database=UnitedStates;Trusted_Connection=True;";
-
-        private TransactionScope transaction;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            transaction = new TransactionScope();
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            transaction.Dispose();
-        }
+        
 
         [TestMethod]
         public void CityCreationTest()
         {
             City city = new City();
             Assert.IsNotNull(city);
+        }
+
+        [TestMethod]
+        public void GetCityTest()
+        {
+            CitySqlDao cityDao = new CitySqlDao(ConnectionString);
+
+            City city = cityDao.GetCity(170);
+
+            Assert.IsNotNull(city);
+        }
+
+        [TestMethod]
+        public void CreateCityTest()
+        {
+            CitySqlDao cityDao = new CitySqlDao(ConnectionString);
+            City city = new City();
+            city.CityName = "Concrete";
+            city.Population = 3;
+            city.StateAbbreviation = "XY";
+            city.Area = 2;
+
+            City newCity = cityDao.CreateCity(city);
+
+            Assert.IsNotNull(newCity);
+
         }
 
         protected int GetRowCount(string table)
