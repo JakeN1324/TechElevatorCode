@@ -59,7 +59,28 @@ namespace PetInfo.Classes.DAO
 
         public Pet GetPet(int petId)
         {
-            Pet pet = null;
+            Pet pet = new Pet();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(sqlGetPet, conn);
+
+                cmd.Parameters.AddWithValue("@id", petId);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+  
+
+                if (reader.Read())
+                {               
+                    pet.Id = Convert.ToInt32(reader["id"]);
+                    pet.Name = Convert.ToString(reader["name"]);
+                    pet.Type = Convert.ToString(reader["type"]);
+                    pet.Breed = Convert.ToString(reader["breed"]);                   
+                }
+            }
+
             return pet;
 
         }
