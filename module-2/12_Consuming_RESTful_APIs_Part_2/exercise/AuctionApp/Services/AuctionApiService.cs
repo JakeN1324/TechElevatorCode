@@ -76,17 +76,55 @@ namespace AuctionApp.Services
 
         public Auction AddAuction(Auction newAuction)
         {
-            throw new System.NotImplementedException();
+            RestRequest request = new RestRequest("auctions");
+            request.AddJsonBody(newAuction);
+            IRestResponse<Auction> response = client.Post<Auction>(request);
+
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {                
+                throw new HttpRequestException($"There was an error communicating with the server.");
+            }
+            else if (!response.IsSuccessful)
+            {
+                throw new HttpRequestException($"An error was encountered. Status: {(int)response.StatusCode}");
+            }
+
+            return response.Data;
         }
 
         public Auction UpdateAuction(Auction auctionToUpdate)
         {
-            throw new System.NotImplementedException();
+            RestRequest request = new RestRequest($"auctions/{auctionToUpdate.Id}");
+            request.AddJsonBody(auctionToUpdate);
+            IRestResponse<Auction> response = client.Put<Auction>(request);
+
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {
+                throw new HttpRequestException($"There was an error communicating with the server.");
+            }
+            else if (!response.IsSuccessful)
+            {
+                throw new HttpRequestException($"An error was encountered. Status: {(int)response.StatusCode}");
+            }
+
+            return response.Data;
         }
 
         public bool DeleteAuction(int auctionId)
         {
-            throw new System.NotImplementedException();
+            RestRequest request = new RestRequest($"auctions/{auctionId}");           
+            IRestResponse response = client.Delete(request);
+
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {
+                throw new HttpRequestException($"There was an error communicating with the server.");
+            }
+            else if (!response.IsSuccessful)
+            {
+                throw new HttpRequestException($"An error was encountered. Status: {(int)response.StatusCode}");
+            }
+
+            return true;
         }
     }
 }
