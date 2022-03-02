@@ -22,5 +22,63 @@ namespace HotelReservations.Controllers
                 reservationDao = new ReservationMemoryDao();
             }
         }
+
+        [HttpGet()]
+        // GET /reservations
+        public ActionResult<List<Reservation>> GetReservations()
+        {
+            return reservationDao.List();
+        }
+
+        [HttpGet()] 
+        // GET reservations?reservationid=3
+        public ActionResult<Reservation> GetWithQueryString(int reservationid)
+        {
+            return GetReservation(reservationid);
+        }
+
+        [HttpGet("{id}")]
+        // GET /reservations/3
+        public ActionResult<Reservation> GetReservation(int id)
+        {           
+            Reservation result = reservationDao.Get(id);
+            if (result != null)
+            {
+                return result;
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        // DELETE /reservations/2
+        public ActionResult DeleteReservation(int id)
+        {
+            if (reservationDao.Delete(id))
+            {
+                return NoContent();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPost()]
+        // POST/reservations
+        public ActionResult<Reservation> AddReservation(Reservation reservation)
+        {
+            Reservation result = reservationDao.Create(reservation);
+            if (result == null)
+            {
+                return StatusCode(500);
+            }
+            else
+            {
+                return result;
+            }
+        }
     }
 }

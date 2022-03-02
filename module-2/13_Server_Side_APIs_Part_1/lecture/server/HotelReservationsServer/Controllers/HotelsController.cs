@@ -5,6 +5,7 @@ using HotelReservations.DAO;
 
 namespace HotelReservations.Controllers
 {
+    //http://localhost:<portnumber>/hotels
     [Route("hotels")]
     [ApiController]
     public class HotelsController : ControllerBase
@@ -22,17 +23,19 @@ namespace HotelReservations.Controllers
         [HttpGet("ready")]
         public string Ready()
         {
-            return "Server is ready.";
+            return "Server is ready for your use.";
         }
 
 
         [HttpGet()]
+        // GET /hotels
         public List<Hotel> ListHotels()
         {
             return hotelDao.List();
         }
 
         [HttpGet("{id}")]
+        // GET/hotels/2
         public ActionResult<Hotel> GetHotel(int id)
         {
             Hotel hotel = hotelDao.Get(id);
