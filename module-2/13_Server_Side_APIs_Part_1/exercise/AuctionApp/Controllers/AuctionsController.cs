@@ -29,11 +29,11 @@ namespace AuctionApp.Controllers
             return "Server ready.";
         }
 
-        [HttpGet()]
-        public List<Auction> ListAuctions()
-        {
-            return dao.List();
-        }
+        //[HttpGet()]
+        //public List<Auction> ListAuctions()
+        //{
+        //    return dao.List();
+        //}
 
         [HttpGet("{id}")]
         public ActionResult<Auction> GetAuction(int id)
@@ -64,24 +64,33 @@ namespace AuctionApp.Controllers
             }
         }
 
-        [HttpGet("filter")]
-
-        public ActionResult<List<Auction>> GetAuctionByTitle(string title_like = "")
+        [HttpGet()]
+        public List<Auction> FilterAuctionsByTitle(string title_like = "", double currentBid_lte = 0)
         {
-            List<Auction> auctions = ListAuctions();
-            List<Auction> result = new List<Auction>();
-            foreach (Auction auction in auctions)
+            if (title_like != "" && currentBid_lte > 0)
             {
-                if (title_like != null)
-                {
-                    if (auction.Title == title_like)
-                    {
-                        auctions.Add(auction);
-                    }
-                }
-                
+                return dao.SearchByTitleAndPrice(title_like, currentBid_lte);
             }
-            return result;
+            else if (title_like != "")
+            {
+                return dao.SearchByTitle(title_like);
+            }
+            else if (currentBid_lte > 0)
+            {
+                return dao.SearchByPrice(currentBid_lte);
+            }
+            
+
+
+            return dao.List();
+
+            
+
+
+
         }
+
+
+
     }
 }
