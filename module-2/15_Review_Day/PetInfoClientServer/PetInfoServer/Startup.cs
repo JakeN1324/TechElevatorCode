@@ -31,6 +31,7 @@ namespace PetInfoServer
             // added for dependency injection
             string connectionString = Configuration.GetConnectionString("pet-info");
             services.AddTransient<IPetDAO>(m => new PetDAO(connectionString));
+            services.AddTransient<IOwnerDAO>(m => new OwnerDAO(connectionString));
             //end of addition
 
             services.AddMvc(option => option.EnableEndpointRouting = false)

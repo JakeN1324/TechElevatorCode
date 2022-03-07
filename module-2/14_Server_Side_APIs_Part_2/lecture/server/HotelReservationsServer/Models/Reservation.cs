@@ -19,7 +19,7 @@ namespace HotelReservations.Models
         [Range(1, 99)]
         public int Nights { get; set; }
 
-        [Range(1, 20)]
+        [Range(1, 20, ErrorMessage = "You may only register up to 20 guests. Please re-submit.")]
         public int Guests { get; set; }
 
         public Reservation()

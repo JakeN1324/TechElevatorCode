@@ -19,6 +19,7 @@ namespace HotelReservationsClient.Services
 
             CheckForError(response, "Login");
             user.Token = response.Data.Token;
+            user.Username = response.Data.Username;
             client.Authenticator = new JwtAuthenticator(user.Token);
             return true;
         }
