@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 namespace PetInfoServer.DAL.Interfaces
 {
-    public interface IActivityDAO
+    public interface IOwnerDAO
     {
-        List<Activity> GetActivities();
+        List<Owner> GetOwners();
     }
 }

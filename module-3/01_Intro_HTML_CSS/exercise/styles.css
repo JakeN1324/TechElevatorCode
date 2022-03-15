@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    color: whitesmoke;
+}
+
+header {
+    text-align: center;
+}
+
+img {
+    height: 400px;
+    width: 325px;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+h4 {
+    text-decoration: underline;
+}
+
+blockquote {
+    font-style: italic;
+}

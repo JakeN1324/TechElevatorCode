@@ -54,7 +54,7 @@ namespace HotelReservations.Controllers
             // Get the user by username
             User user = userDao.GetUser(userParam.Username);
 
-            //if we cound the user, reject bacause user alreayd exists 
+            //if we cound the user, reject bacause user already exists 
 
             if (user != null)
             {
