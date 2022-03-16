@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: rgba(192, 192, 192, 0.1);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+aside {
+  position: fixed;
+  border: 1px solid rgba(0, 173, 238, 0.4);
+  height: 100%;
+  width: 200px;
+}
+
+aside > img {
+  width: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main {
+  padding-left: 220px;
+  padding-right: 20px;
+}
+
+li {
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 173, 238, 0.4);
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  list-style: none;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+li > a {
+  font-weight: bold;
+  color: #00ADEE;
+  text-decoration: none;
+}
+
+li:first-child {
+  text-decoration: underline;
+}
+
+header > img {
+  height: 100px;
+  padding-bottom: 2px;
+}
+
+main > img {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+section > div {
+  width: 33%;
+  display: inline-block;
+  padding-left: 2px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+}
+
+h2 {
+  color: #8CC36F;
+}
+
+h2 > i {
+  padding-left: 2px;
+}
+
+#our-work, #contact-us {
+  border: 1px solid rgba(170, 239, 135, 0.8);
+  border-top: none;
+  border-bottom: none;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
