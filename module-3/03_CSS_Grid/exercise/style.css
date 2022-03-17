@@ -50,3 +50,127 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+main#main-grid {
+    display: grid;
+    grid-template-areas: 
+    "headline headline picture"
+    "quote quote picture"
+    "profile profile contact"
+    "experience experience experience";
+    grid-template-columns: 289.156px 289.156px 289.156px;
+    column-gap: 50px;
+    row-gap: 20px;
+    align-items: center;
+    
+    
+}
+
+div#experience-grid {
+    display: grid;
+    grid-template-areas: 
+    "code code"
+    "database database"
+    "web design";
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 20px;
+}
+
+h1#headline {
+    grid-area: headline;
+}
+
+div#student-picture {
+    grid-area: picture;
+    text-align: center;
+}
+
+div#student-quote {
+    grid-area: quote;
+}
+
+div#student-profile {
+    grid-area: profile;
+}
+
+div#student-contact {
+    grid-area: contact;
+    text-align: center;
+}
+
+div#experience-grid {
+    grid-area: experience;
+}
+
+div#experience-code {
+    grid-area: code;
+}
+
+div#experience-database {
+    grid-area: database;
+}
+
+div#experience-web {
+    grid-area: web;
+}
+
+div#experience-design {
+    grid-area: design;
+}
+
+@media screen and (max-width: 1024px) {
+    main#main-grid {
+        display: grid;
+        grid-template-areas: 
+        "headline headline"
+        "quote picture"
+        "quote contact"
+        "profile profile"
+        "experience experience";
+        grid-template-columns: 375.875px 375.875px;
+        column-gap: 35px;
+        row-gap: 20px;
+        
+        
+        
+    }     
+    div#experience-grid {
+        display: grid;
+        grid-template-areas: 
+        "code web"
+        "database design";       
+        column-gap: 20px;
+        row-gap: 20px;
+    }    
+}
+
+@media screen and (max-width: 450px) {
+    main#main-grid {
+        display: grid;
+        grid-template-areas: 
+        "headline"
+        "picture"
+        "contact"
+        "quote"
+        "profile"
+        "experience";
+        grid-template-columns: auto;
+        column-gap: 35px;
+        row-gap: 20px;
+        
+        
+        
+    }     
+    div#experience-grid {
+        display: grid;
+        grid-template-areas: 
+        "code"
+        "web"
+        "database"
+        "design";
+        grid-template-columns: auto;       
+        column-gap: 20px;
+        row-gap: 20px;
+    }    
+}
