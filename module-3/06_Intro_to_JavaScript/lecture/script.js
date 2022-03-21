@@ -8,10 +8,16 @@
  * Functions start with the word function.
  * They don't have a return type and the naming convention is camel-case.
  */
+
 function variables() {
   // Declares a variable where the value cannot be changed
+  const x1 = "Hello";
   // Declares a variable those value can be changed
+  let x2 = 6.7;
   // Declares a variable that will always be an array
+  x3 = [5, 7, 9, 2];
+  x3.push(5);
+  console.log(x3);
 }
 
 /**
@@ -74,10 +80,13 @@ function objects() {
   };
 
   // Log the object
-
+  
+  console.log(person);
   // Log the first and last name
+  console.log(person.firstName, person.lastName);
 
   // Log each employee
+  console.log(person.employees);
 }
 
 /*
@@ -91,10 +100,12 @@ earlier ones are overriden and the most recent one will be used.
 */
 
 function Add(num1, num2) {
+  console.log("This is never executed.")
   return num1 + num2;
 }
 
 function Add(num1, num2, num3) {
+  console.log("This is always executed.")
   return num1 + num2 + num3;
 }
 
