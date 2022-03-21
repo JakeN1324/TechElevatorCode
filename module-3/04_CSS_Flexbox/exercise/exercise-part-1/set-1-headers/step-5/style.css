@@ -4,8 +4,17 @@ body {
 }
 
 header {
+  display: flex;
   background-color: #F0F0F0;
   padding: 20px;
+}
+
+.spacer {
+  flex-grow: 2;
+}
+
+nav {
+  
 }
 
 .logo {
@@ -13,12 +22,15 @@ header {
 }
 
 ul {
+  display: flex;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
 li {
+  flex-direction: column;
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
@@ -36,8 +48,4 @@ a:visited {
 a:hover {
   color: #00AFEF;
   text-decoration: underline;
-}
-
-.my-account img {
-  width: 40px;
 }

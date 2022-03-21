@@ -5,11 +5,14 @@ body {
 }
 
 .container {
+  display: flex;
+  align-items: flex-start;
   background-color: #F0F0F0;
   height: 500px;
 }
 
 .box {
+  flex-direction: row;
   padding: 40px 55px;
   background-color: #00AFEF;
   color: #fff;
