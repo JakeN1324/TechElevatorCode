@@ -1,3 +1,31 @@
+const name = ["Primrose", "Gabriel", "Penny"];
+
+const result = names.find((name) => name.includes("Prim"))
+if (result) {
+  console.log("name found");
+} else {
+  console.log("did not find name");
+}
+
+
+
+const searchTerm = "P";
+const resultIndex = names.findIndex((name) => name.includes(searchTerm))
+console.log(resultIndex);
+
+
+const result = names.filter(item => item.includes(searchTerm))
+console.log(result);
+
+
+const result = names.map((item) => "Cat, " + item)
+console.log(result);
+
+
+const nums = [3, 1, 4, 1, 5, 9, 2, 6]
+
+const result = nums.reduce((total, num) => total + num, 1000)
+console.log(result);
 /**
  * All named functions will have the function keyword and
  * a name followed by parentheses.
