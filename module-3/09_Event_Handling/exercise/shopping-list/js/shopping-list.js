@@ -17,6 +17,27 @@ const groceries = [
  * This function will get a reference to the title and set its text to the value
  * of the pageTitle variable that was set above.
  */
+document.addEventListener('DOMContentLoaded', () => {
+  setPageTitle();
+
+  displayGroceries();
+
+  // const items = document.querySelectorAll('ul > li')
+  // items.forEach(item => {
+  //   if (item.classList.contains('completed') == false) {
+  //     item.addEventListener('click', () => {
+  //       item.classList.add('completed');              
+  //     })     
+  //   } 
+  // })
+  
+  completeItems();
+  uncheckItems();
+  
+
+  
+  
+})
 function setPageTitle() {
   const title = document.getElementById('title');
   title.innerText = pageTitle;
@@ -35,4 +56,26 @@ function displayGroceries() {
     li.appendChild(checkCircle);
     ul.appendChild(li);
   });
+}
+
+function completeItems() {
+  const items = document.querySelectorAll('li')
+  
+  items.forEach(item => {
+    if (item.classList.contains('completed') == false) {
+      item.addEventListener('click', () => {
+        item.classList.add('completed');
+        item.children.classList.add('completed');             
+      })     
+    } 
+  })
+}
+
+function uncheckItems() {
+  const items = document.querySelectorAll('li')
+  items.forEach(item => {
+      item.addEventListener('dblclick', () => {
+        item.classList.remove('completed');
+      })  
+  })
 }
