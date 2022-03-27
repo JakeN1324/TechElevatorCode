@@ -65,7 +65,7 @@ function completeItems() {
     if (item.classList.contains('completed') == false) {
       item.addEventListener('click', () => {
         item.classList.add('completed');
-        item.children.classList.add('completed');             
+                     
       })     
     } 
   })
