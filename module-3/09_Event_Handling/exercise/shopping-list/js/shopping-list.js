@@ -22,21 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   displayGroceries();
 
-  // const items = document.querySelectorAll('ul > li')
-  // items.forEach(item => {
-  //   if (item.classList.contains('completed') == false) {
-  //     item.addEventListener('click', () => {
-  //       item.classList.add('completed');              
-  //     })     
-  //   } 
-  // })
   
   completeItems();
   uncheckItems();
-  
-
-  
-  
+  markAllComplete();
 })
 function setPageTitle() {
   const title = document.getElementById('title');
@@ -78,4 +67,25 @@ function uncheckItems() {
         item.classList.remove('completed');
       })  
   })
+}
+
+function markAllComplete() {
+  const items = document.querySelectorAll('li');
+  const button = document.querySelector('#toggleAll');
+  if (allItemsIncomplete == true) {
+    button.addEventListener('click', (event) => {
+      items.forEach(item => {
+        item.classList.toggle('completed');        
+      })
+      if (allItemsIncomplete == true) {
+        event.target.innerText = 'Mark All Incomplete';
+        allItemsIncomplete = false;
+      } else if (allItemsIncomplete == false) {
+        event.target.innerText = 'Mark All Complete';
+        allItemsIncomplete = true;
+      }
+      
+    })
+  }
+  
 }
