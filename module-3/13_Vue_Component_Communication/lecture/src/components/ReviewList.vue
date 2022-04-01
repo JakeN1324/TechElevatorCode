@@ -12,17 +12,20 @@
 import ReviewDisplay from "./ReviewDisplay";
 
 export default {
-  name: "review-list",
+  name: "review-list", 
   components: {
     ReviewDisplay
   },
   computed: {
     filteredReviews() {
-      const reviewsFilter = -1;
-      const reviews = [];
-      return reviews.filter(review => {
-        return reviewsFilter === 0 ? true : reviewsFilter === review.rating;
+      const reviewsFilter = 0;
+      //const reviews = [];
+      return this.reviews.filter(review => {
+        return reviewsFilter == 0 ? true : reviewsFilter == review.rating;
       });
+    },
+    reviews() {
+      return this.$store.state.reviews;
     }
   }
 };
