@@ -15,7 +15,7 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" v-on:click="selectAllUsers"/>
+            <input type="checkbox" id="selectAll" v-on:click="toggleAllUsers" v-model="selectAllChecked"/>
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -96,7 +96,7 @@ export default {
       showForm: false,
       prompt: 'Enable',
       selectUserIDs: [],
-      
+      usersToggled: false,
       filter: {
         firstName: "",
         lastName: "",
@@ -166,7 +166,16 @@ export default {
   },
   methods: {
     saveUser() {
-      this.users.unshift(this.newUser);
+      this.newUser.id = this.users.length + 1;
+      this.users.push(this.newUser);
+      this.newUser = {
+        id: null,
+        firstName: "",
+        lastName: "",
+        username: "",
+        emailAddress: "",
+        status: "Active"
+      };
       this.showForm = false;
     },
 
@@ -175,14 +184,7 @@ export default {
         return user.id === id;
       })
       
-      this.users[index].status = this.users[index].status === 'Active' ? 'Disabled' : 'Active'
-
-      //  if (this.users[index].status === 'Active') {
-      //    this.users[index].status = 'Disabled';
-      //  } else {
-      //    this.users[index].status = 'Active';
-      //  }
-      
+      this.users[index].status = this.users[index].status === 'Active' ? 'Disabled' : 'Active'   
     },
     enableSelectedUsers() {
       this.selectUserIDs.forEach(id => {
@@ -192,6 +194,7 @@ export default {
         this.users[index].status = 'Active';
       });
       this.selectUserIDs = [];
+      this.usersToggled = false;
     },
 
     disableSelectedUsers() {
@@ -202,6 +205,7 @@ export default {
         this.users[index].status = 'Disabled';
       });
       this.selectUserIDs = [];
+      this.usersToggled = false;
     },
 
     deleteSelectedUsers() {
@@ -212,35 +216,44 @@ export default {
         this.users.splice(index, 1);
       });
       this.selectUserIDs = [];
+      this.usersToggled = false;
     },
 
-    selectAllUsers() {
-      
+    toggleAllUsers() {
+      if (this.usersToggled === false) {
         this.users.forEach(user => {
           this.selectUserIDs.unshift(user.id)
         })
-
-      
-      
+        this.usersToggled = true;
+      } else {
+        this.selectUserIDs = [];
+        this.usersToggled = false;
+      }
     },
 
+    
+
     removeAllUsers() {
-      
         this.users.forEach(user => {
           this.selectUserIDs.delete(user.id);
         })
-
-      
-      
+         
     }
     
   },
   computed: {
     actionButtonDisabled() {
-      if (this.selectUserIDs.length === 0) {
+      if (this.selectUserIDs.length < this.users.length) {
         return true;       
       } else {
         return false;
+      }
+    },
+    selectAllChecked() {
+      if (this.selectUserIDs.length === 0) {
+        return false;
+      } else {
+        return true;
       }
     },
     filteredList() {
