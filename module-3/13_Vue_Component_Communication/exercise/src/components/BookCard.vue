@@ -1,15 +1,30 @@
 <template>
-  <div class="book" v-bind:key="book.isbn">
+  <div class="card" v-bind:class="{read: book.read}">
     <h2 class="book-title">{{book.title}}</h2>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
-    <h3 class="book-author">{{book.author}}</h3> 
+    <h3 class="book-author">{{book.author}}</h3>
+    <div class="button-container" v-if="! enableAdd">
+        <button class="mark-read" v-on:click.prevent="changeStatus(true)" v-if="!book.read">Mark Read</button>
+        <button class="mark-unread" v-on:click.prevent="changeStatus(false)" v-if="book.read">Mark Unread</button>
+    </div> 
   </div>
 </template>
 
 <script>
 export default {
     name: 'book-card',
-    props: ["book"]
+    props: {
+        book: Object,
+        enableAdd: {
+            type: Boolean,
+            default: false
+        }
+    },
+    methods: {
+        changeStatus(value) {
+            this.$store.commit('CHANGE_STATUS', {book: this.book, value: value})
+        }
+    }
 }
 </script>
 

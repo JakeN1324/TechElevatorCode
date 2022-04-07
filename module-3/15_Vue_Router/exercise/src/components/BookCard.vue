@@ -1,7 +1,7 @@
 <template>
   <div class="card" v-bind:class="{ read: book.read }">
     <h2 class="book-title">{{ book.title }}</h2>
-    <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
+    <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" v-on:click="getDetails"/>
     <h3 class="book-author">{{ book.author }}</h3>
     <div class="button-container" v-if="! enableAdd">
         <button class="mark-read" v-on:click.prevent="setRead(true)" v-if=" ! book.read">Mark Read</button>
@@ -15,7 +15,7 @@
 export default {
     name: 'book-card',
     props: {
-        book: Object,
+        book: Object, 
         enableAdd: {
             type: Boolean,
             default: false
@@ -30,6 +30,9 @@ export default {
             delete addedBook.bestSeller;
             delete addedBook.newRelease;
             this.$store.commit('SAVE_BOOK', addedBook);
+        },
+        getDetails() {
+            this.$router.push('/book/' + this.book.isbn)
         }
     }
 }

@@ -39,16 +39,16 @@ namespace Capstone.Controllers
         {
 
             return BadRequest();
-            //bool result = petDAO.AddPet(pet);
+            bool result = petDAO.AddPet(pet);
 
-            //if (result)
-            //{
-            //    return Ok();
-            //}
-            //else
-            //{
-            //    return BadRequest();
-            //}
+            if (result)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }
