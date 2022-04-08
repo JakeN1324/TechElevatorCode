@@ -1,7 +1,8 @@
 <template>
   <div>
-    <pet-add />
     <pet-view />
+    <pet-add />
+    
   </div>
 </template>
 

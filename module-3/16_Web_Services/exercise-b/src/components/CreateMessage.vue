@@ -32,7 +32,10 @@ export default {
   },
   methods: {
     saveMessage() {
-
+      this.$store.commit('ADD_MESSAGE', this.message);
+      messageService.addMessage(this.message).then(response => {    
+          this.$router.push({name: 'Messages', params: {id: this.message.topicId}});
+        });
     }
   }
 };

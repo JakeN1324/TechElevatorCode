@@ -24,7 +24,14 @@ export default {
     };
   },
   methods: {
-    saveTopic() {}
+    saveTopic() {
+      this.$store.commit('ADD_TOPIC', this.topic);
+      topicService.addTopic(this.topic).then(response => {    
+          this.$router.push({ name: "Home" });
+        });
+         
+        
+    }
   }
 };
 </script>

@@ -38,7 +38,12 @@ export default {
         this.$store.commit("SET_TOPICS", response.data);
       });
     },
-    deleteTopic(id) {}
+    deleteTopic(id) {
+      this.$store.commit('DELETE_TOPIC', this.topic);
+      topicService.removeTopic(id).then(response => {    
+          this.getTopics();
+        });
+    }
   },
   created() {
     this.getTopics();

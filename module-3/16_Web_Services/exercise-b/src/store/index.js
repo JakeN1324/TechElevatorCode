@@ -34,6 +34,21 @@ export default new Vuex.Store({
     SET_ACTIVE_MESSAGE(state, data) {
       state.activeMessage = data;
     },
+    ADD_TOPIC(state, topic) {
+      state.topics.push(topic);
+    },
+    ADD_MESSAGE(state, message) {
+      state.activeTopic.messages.push(message);
+    },
+    UPDATE_MESSAGE(state, message) {
+      state.activeTopic.messages.push(message)
+    },
+    UPDATE_TOPIC(state, topic) {
+      state.topics.push(topic);
+    },
+    DELETE_TOPIC(state, topic) {
+      state.topics.push(topic);
+    }
   },
   actions: {
   },
